@@ -1,0 +1,64 @@
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%X893%
+DriverVer=01/26/2013,5.2.0.0
+CatalogFile.NTx86=STM32F1-vcom_x86.cat
+CatalogFile.NTAMD64=STM32F1-vcom_amd64.cat
+
+[Manufacturer]
+%X893%=DeviceList,ntamd64
+
+[DeviceList]
+%DESCRIPTION%=STM32F1USB, USB\VID_03EB&PID_6133
+%COMPOSITE0% =STM32F1USB, USB\VID_03EB&PID_6133&MI_00
+%COMPOSITE2% =STM32F1USB, USB\VID_03EB&PID_6133&MI_02
+
+[DeviceList.ntamd64]
+%DESCRIPTION%=STM32F1USB, USB\VID_03EB&PID_6133
+%COMPOSITE0% =STM32F1USB, USB\VID_03EB&PID_6133&MI_00
+%COMPOSITE2% =STM32F1USB, USB\VID_03EB&PID_6133&MI_02
+
+;------------------------------------------------------------------------------
+;  Installation
+;------------------------------------------------------------------------------
+
+[SourceDisksFiles]
+
+[SourceDisksNames]
+
+[DestinationDirs]
+FakeModemCopyFileSection=12
+DefaultDestDir=12
+
+[STM32F1USB]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=STM32F1USB.AddReg
+
+[STM32F1USB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[STM32F1USB.Services]
+AddService=usbser, 0x00000002, DriverService
+
+[DriverService]
+DisplayName=%DRIVER.SVC%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings]
+X893       = "X893"
+DRIVER.SVC = "STM32F1 USB VCom Driver"
+DESCRIPTION= "STM32F1 USB VCom Port"
+COMPOSITE0 = "STM32F1 USB VCom Port"
+COMPOSITE2 = "STM32F1 USB VCom Port"
