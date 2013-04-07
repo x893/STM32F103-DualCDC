@@ -21,25 +21,21 @@
 /* Exported types ------------------------------------------------------------*/
 typedef struct
 {
-  uint32_t bitrate;
-  uint8_t format;
-  uint8_t paritytype;
-  uint8_t datatype;
-}LINE_CODING;
+	uint32_t bitrate;
+	uint8_t format;
+	uint8_t paritytype;
+	uint8_t datatype;
+} LINE_CODING;
 
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported define -----------------------------------------------------------*/
-
-#define Virtual_Com_Port_GetConfiguration          NOP_Process
-//#define Virtual_Com_Port_SetConfiguration          NOP_Process
-#define Virtual_Com_Port_GetInterface              NOP_Process
-#define Virtual_Com_Port_SetInterface              NOP_Process
-#define Virtual_Com_Port_GetStatus                 NOP_Process
-#define Virtual_Com_Port_ClearFeature              NOP_Process
-#define Virtual_Com_Port_SetEndPointFeature        NOP_Process
-#define Virtual_Com_Port_SetDeviceFeature          NOP_Process
-//#define Virtual_Com_Port_SetDeviceAddress          NOP_Process
+#define Virtual_Com_Port_GetConfiguration			NOP_Process
+// #define Virtual_Com_Port_SetConfiguration		NOP_Process
+#define Virtual_Com_Port_GetInterface				NOP_Process
+#define Virtual_Com_Port_SetInterface				NOP_Process
+#define Virtual_Com_Port_GetStatus					NOP_Process
+#define Virtual_Com_Port_ClearFeature				NOP_Process
+#define Virtual_Com_Port_SetEndPointFeature			NOP_Process
+#define Virtual_Com_Port_SetDeviceFeature			NOP_Process
+// #define Virtual_Com_Port_SetDeviceAddress		NOP_Process
 
 #define SEND_ENCAPSULATED_COMMAND   0x00
 #define GET_ENCAPSULATED_RESPONSE   0x01
